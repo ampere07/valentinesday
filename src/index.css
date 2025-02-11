@@ -47,7 +47,7 @@
     opacity: 0.8;
   }
   50% {
-    transform: scale(1.5); /* Grow much bigger */
+    transform: scale(3); /* Grow much bigger */
     opacity: 1;
   }
   100% {
