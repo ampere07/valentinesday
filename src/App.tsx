@@ -31,16 +31,12 @@ function App() {
 
       // Play sound when last petal falls
       if (petalsRemaining === 1) {
-        // Show the heart animation first
-        setTimeout(() => {
-          setShowHeart(true); // Trigger heart animation
-        }, 0); // Show heart immediately
+        // Trigger heart animation immediately
+        setShowHeart(true);
 
-        // Play the music after heart shows
+        // Play the music immediately after triggering the heart animation
         const audio = new Audio(musicFile);
-        setTimeout(() => {
-          audio.play().catch(error => console.log('Audio playback failed:', error));
-        }, 1000); // Play music after the heart shows
+        audio.play().catch(error => console.log('Audio playback failed:', error));
       }
     }
   };
