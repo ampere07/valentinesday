@@ -6,7 +6,6 @@ function App() {
   const [message, setMessage] = useState('');
   const [showMessage, setShowMessage] = useState(false);
   const [fallingPetal, setFallingPetal] = useState(false);
-  const [showHeart, setShowHeart] = useState(false); // For heart animation
 
   const messages = [
     "mag vavalentines tayo",
@@ -30,13 +29,9 @@ function App() {
 
       // Play sound when last petal falls
       if (petalsRemaining === 1) {
-        const audio = new Audio('/music/my-audio.mp3');
+        const audio = new Audio('/music/123.mp3');
         audio.play().catch(error => console.log('Audio playback failed:', error));
-
-        // Show the heart animation after the music starts
-        setTimeout(() => {
-          setShowHeart(true); // Trigger heart animation
-        }, 1500);
+      }
     }
   };
 
@@ -182,10 +177,6 @@ function App() {
             }}
           />
         </div>
-      )}
-
-{showHeart && (
-        <div className="heart" />
       )}
 
       {/* Message display */}
