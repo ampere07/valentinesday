@@ -49,7 +49,7 @@ function App() {
         {[...Array(20)].map((_, i) => (
           <Heart
             key={i}
-            className="absolute text-pink-300 opacity-20"
+            className="absolute text-pink-700 opacity-20"
             style={{
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`,
