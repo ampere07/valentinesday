@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import { Heart } from 'lucide-react';
+import musicFile from './assets/123.mp3';
 
 function App() {
   const [petalsRemaining, setPetalsRemaining] = useState(24);
   const [message, setMessage] = useState('');
   const [showMessage, setShowMessage] = useState(false);
   const [fallingPetal, setFallingPetal] = useState(false);
+  const [showHeart, setShowHeart] = useState(false); // For heart animation
 
   const messages = [
     "mag vavalentines tayo",
@@ -29,8 +31,13 @@ function App() {
 
       // Play sound when last petal falls
       if (petalsRemaining === 1) {
-        const audio = new Audio('/music/123.mp3');
+        const audio = new Audio(musicFile);
         audio.play().catch(error => console.log('Audio playback failed:', error));
+
+        // Show the heart animation after the music starts
+        setTimeout(() => {
+          setShowHeart(true); // Trigger heart animation
+        }, 1500); // Delay to ensure heart shows after music starts
       }
     }
   };
@@ -68,20 +75,20 @@ function App() {
           >
             {/* Center texture */}
             <div className="w-90 h-90 rounded-full overflow-hidden">
-      {[...Array(100)].map((_, i) => (
-        <div
-          key={i}
-          className="absolute w-1.5 h-1.5 rounded-full"
-          style={{
-            background: '#654321',
-            left: `${Math.random() * 100}%`,
-            top: `${Math.random() * 100}%`,
-            transform: `rotate(${Math.random() * 360}deg)`,
-          }}
-        />
-      ))}
-    </div>
-  </div>
+              {[...Array(100)].map((_, i) => (
+                <div
+                  key={i}
+                  className="absolute w-1.5 h-1.5 rounded-full"
+                  style={{
+                    background: '#654321',
+                    left: `${Math.random() * 100}%`,
+                    top: `${Math.random() * 100}%`,
+                    transform: `rotate(${Math.random() * 360}deg)`,
+                  }}
+                />
+              ))}
+            </div>
+          </div>
 
           {/* Petals */}
           {[...Array(petalsRemaining)].map((_, i) => (
@@ -93,11 +100,7 @@ function App() {
                 height: '30px', // Reduced from 35px
                 left: '56%',
                 top: '50%',
-                transform: `
-                  translate(-25%, -50%)
-                  rotate(${(360 / 24) * i}deg)
-                  translateX(10px)
-                `,
+                transform: `translate(-25%, -50%) rotate(${(360 / 24) * i}deg) translateX(10px)`,
                 transformOrigin: 'left center',
               }}
             >
@@ -127,31 +130,26 @@ function App() {
             }}
           >
             {/* Leaves */}
-<div
-  className="absolute left-16 top-1/4 w-12 h-16"
-  style={{
-    background: 'linear-gradient(45deg, #228B22, #32CD32)',
-    borderRadius: '100% 0 100% 0',
-    transform: 'rotate(30deg) skew(10deg) translateX(20px)',
-    transformOrigin: 'bottom right',
-  }}
-/>
+            <div
+              className="absolute left-16 top-1/4 w-12 h-16"
+              style={{
+                background: 'linear-gradient(45deg, #228B22, #32CD32)',
+                borderRadius: '100% 0 100% 0',
+                transform: 'rotate(30deg) skew(10deg) translateX(20px)',
+                transformOrigin: 'bottom right',
+              }}
+            />
 
-
-<div
-  className="absolute top-1/2 w-12 h-16"
-  style={{
-    right: '90px', // Slightly more left
-    background: 'linear-gradient(-45deg, #228B22, #32CD32)',
-    borderRadius: '0 100% 0 100%',
-    transform: 'rotate(-30deg) skew(-10deg)',
-    transformOrigin: 'bottom left',
-  }}
-/>
-
-
-
-
+            <div
+              className="absolute top-1/2 w-12 h-16"
+              style={{
+                right: '90px', // Slightly more left
+                background: 'linear-gradient(-45deg, #228B22, #32CD32)',
+                borderRadius: '0 100% 0 100%',
+                transform: 'rotate(-30deg) skew(-10deg)',
+                transformOrigin: 'bottom left',
+              }}
+            />
           </div>
         </div>
       </div>
@@ -177,6 +175,11 @@ function App() {
             }}
           />
         </div>
+      )}
+
+      {/* Heart animation */}
+      {showHeart && (
+        <div className="heart" />
       )}
 
       {/* Message display */}
