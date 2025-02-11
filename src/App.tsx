@@ -184,7 +184,7 @@ function App() {
           className="absolute text-red-500 animate-heart"
           style={{
             top: '40%',
-            left: '48%',
+            left: '47%',
             transform: 'translateX(-50%)',
           }}
         />
