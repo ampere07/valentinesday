@@ -179,7 +179,15 @@ function App() {
 
       {/* Heart animation */}
       {showHeart && (
-        <div className="heart" />
+        <Heart
+          size={80}
+          className="absolute text-red-500 animate-heart"
+          style={{
+            top: '40%',
+            left: '50%',
+            transform: 'translateX(-50%)',
+          }}
+        />
       )}
 
       {/* Message display */}
