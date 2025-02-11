@@ -69,7 +69,7 @@ function App() {
           <div
             className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-28 h-28 rounded-full z-20"
             style={{
-              background: 'radial-gradient(circle, #8B4513 60%, #654321 100%)',
+              background: 'radial-gradient(circle,rgb(87, 28, 69) 60%,rgb(78, 27, 58) 100%)',
               boxShadow: 'inset 0 0 20px rgba(0,0,0,0.3)'
             }}
           >
@@ -80,7 +80,7 @@ function App() {
                   key={i}
                   className="absolute w-1.5 h-1.5 rounded-full"
                   style={{
-                    background: '#654321',
+                    background: '#FF5733',
                     left: `${Math.random() * 100}%`,
                     top: `${Math.random() * 100}%`,
                     transform: `rotate(${Math.random() * 360}deg)`,
