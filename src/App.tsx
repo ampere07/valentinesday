@@ -6,6 +6,7 @@ function App() {
   const [message, setMessage] = useState('');
   const [showMessage, setShowMessage] = useState(false);
   const [fallingPetal, setFallingPetal] = useState(false);
+  const [showHeart, setShowHeart] = useState(false); // For heart animation
 
   const messages = [
     "mag vavalentines tayo",
@@ -15,11 +16,11 @@ function App() {
   const handleFlowerClick = () => {
     if (petalsRemaining > 0) {
       setFallingPetal(true);
-      
+
       // Determine message based on remaining petals
       const messageIndex = petalsRemaining <= 2 ? 0 : (24 - petalsRemaining) % 2;
       const newMessage = messages[messageIndex];
-      
+
       setTimeout(() => {
         setPetalsRemaining(prev => prev - 1);
         setMessage(newMessage);
@@ -29,9 +30,13 @@ function App() {
 
       // Play sound when last petal falls
       if (petalsRemaining === 1) {
-        const audio = new Audio('/path-to-your-audio.mp3');
+        const audio = new Audio('/music/my-audio.mp3');
         audio.play().catch(error => console.log('Audio playback failed:', error));
-      }
+
+        // Show the heart animation after the music starts
+        setTimeout(() => {
+          setShowHeart(true); // Trigger heart animation
+        }, 1500);
     }
   };
 
@@ -53,15 +58,15 @@ function App() {
       </div>
 
       {/* Sunflower */}
-      <div 
+      <div
         className="relative cursor-pointer transform hover:scale-105 transition-transform"
         onClick={handleFlowerClick}
       >
         <div className="w-80 h-80 relative">
           {/* Flower center */}
-          <div 
+          <div
             className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-28 h-28 rounded-full z-20"
-            style={{ 
+            style={{
               background: 'radial-gradient(circle, #8B4513 60%, #654321 100%)',
               boxShadow: 'inset 0 0 20px rgba(0,0,0,0.3)'
             }}
@@ -82,7 +87,7 @@ function App() {
       ))}
     </div>
   </div>
-          
+
           {/* Petals */}
           {[...Array(petalsRemaining)].map((_, i) => (
             <div
@@ -94,14 +99,14 @@ function App() {
                 left: '56%',
                 top: '50%',
                 transform: `
-                  translate(-25%, -50%) 
-                  rotate(${(360 / 24) * i}deg) 
+                  translate(-25%, -50%)
+                  rotate(${(360 / 24) * i}deg)
                   translateX(10px)
                 `,
                 transformOrigin: 'left center',
               }}
             >
-              <div 
+              <div
                 style={{
                   position: 'absolute',
                   width: '100%',
@@ -119,9 +124,9 @@ function App() {
 
         {/* Stem */}
         <div className="relative mx-auto -mt-6">
-          <div 
+          <div
             className="w-6 h-40 mx-auto"
-            style={{ 
+            style={{
               background: 'linear-gradient(to right, #228B22, #32CD32)',
               borderRadius: '0px'
             }}
@@ -138,7 +143,7 @@ function App() {
 />
 
 
-<div 
+<div
   className="absolute top-1/2 w-12 h-16"
   style={{
     right: '90px', // Slightly more left
@@ -158,7 +163,7 @@ function App() {
 
       {/* Falling petal animation */}
       {fallingPetal && (
-        <div 
+        <div
           className="absolute animate-fall"
           style={{
             width: '80px', // Updated to match new petal size
@@ -167,7 +172,7 @@ function App() {
             left: '50%',
           }}
         >
-          <div 
+          <div
             style={{
               width: '100%',
               height: '100%',
@@ -177,6 +182,10 @@ function App() {
             }}
           />
         </div>
+      )}
+
+{showHeart && (
+        <div className="heart" />
       )}
 
       {/* Message display */}
