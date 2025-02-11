@@ -43,15 +43,15 @@
 
 @keyframes heart-beat {
   0% {
-    transform: scale(1); /* Start bigger */
+    transform: scale(0.5); /* Start bigger */
     opacity: 0.8;
   }
   50% {
-    transform: scale(3); /* Grow much bigger */
+    transform: scale(1.5); /* Grow much bigger */
     opacity: 1;
   }
   100% {
-    transform: scale(1); /* Shrink back */
+    transform: scale(0.5); /* Shrink back */
     opacity: 0.8;
   }
 }

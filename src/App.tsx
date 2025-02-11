@@ -180,14 +180,14 @@ function App() {
       {/* Heart animation */}
       {showHeart && (
         <Heart
-        size={160}  // Increase size even further to make the heart larger
-        className="absolute text-red-500 animate-heart"
-        style={{
-          top: '40%',
-          left: '50%',
-          transform: 'translateX(-50%)',
-        }}
-      />
+          size={80}
+          className="absolute text-red-500 animate-heart"
+          style={{
+            top: '40%',
+            left: '50%',
+            transform: 'translateX(-50%)',
+          }}
+        />
       )}
 
       {/* Message display */}
