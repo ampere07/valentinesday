@@ -179,15 +179,29 @@ function App() {
 
       {/* Heart animation */}
       {showHeart && (
-        <Heart
-          size={80}
+        <div
           className="absolute text-red-500 animate-heart"
           style={{
             top: '40%',
             left: '47%',
             transform: 'translateX(-50%)',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            width: '80px',
+            height: '80px',
           }}
-        />
+        >
+          <Heart size={80} className="absolute" />
+          <span
+            className="absolute text-white font-bold text-center"
+            style={{
+              fontSize: '14px', // Adjust font size as needed
+            }}
+          >
+            lesgo beybe
+          </span>
+        </div>
       )}
 
       {/* Message display */}
