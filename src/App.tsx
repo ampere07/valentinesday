@@ -80,7 +80,7 @@ function App() {
                   key={i}
                   className="absolute w-1.5 h-1.5 rounded-full"
                   style={{
-                    background: '#FF5733',
+                    background: 'rgb(87, 28, 69)',
                     left: `${Math.random() * 100}%`,
                     top: `${Math.random() * 100}%`,
                     transform: `rotate(${Math.random() * 360}deg)`,
