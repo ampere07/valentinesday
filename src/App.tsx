@@ -109,7 +109,7 @@ function App() {
                   position: 'absolute',
                   width: '100%',
                   height: '100%',
-                  background: 'linear-gradient(to right, #FFD700, #FFA500)',
+                  background: 'linear-gradient(to right,rgb(255, 189, 230),rgb(255, 157, 222))',
                   borderRadius: '40%',
                   transform: 'scale(1.6, 1)', // Reduced from 1.8
                   transformOrigin: '0 50%',
