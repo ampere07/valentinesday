@@ -169,7 +169,7 @@ function App() {
             style={{
               width: '100%',
               height: '100%',
-              background: 'linear-gradient(to right, #FFD700, #FFA500)',
+              background: 'linear-gradient(to right, rgb(255, 189, 230),rgb(255, 119, 210))',
               borderRadius: '40%',
               transform: 'scale(1.6, 1)', // Updated to match new petal scale
             }}
